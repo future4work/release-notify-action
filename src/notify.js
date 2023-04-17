@@ -35,10 +35,10 @@ let prepareMessage = function(recipients) {
     releaseBody = converter.makeHtml(eventPayload.release.body + footer)
 
   let msg = {
-    to: ['devops@future.work'],
+    to: ['no-reply@future.work'],
     from: {
       name: 'FUTURE DevOps',
-      email: 'devops@future.work',
+      email: 'no-reply@future.work',
     },
     bcc: recipients,
     subject: emailSubject,
