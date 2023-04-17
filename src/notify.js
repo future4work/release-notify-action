@@ -6,7 +6,7 @@ const sgMail = require('@sendgrid/mail'),
 
 // E-mail string templates
 const SUBJECT_TEMPLATE = "New $REPO$ release: $NAME$ ($VERSION$)",
-  FOOTER_TEMPLATE = "\n\n## Where to find the release?\n\n[Visit the release page]($RELEASEURL$)\n\n## Found a bug?\n\n [Open a new issue in our repo]($NEWISSUEURL$)"
+  FOOTER_TEMPLATE = "\n\n## Where to find the release?\n\n[Visit the release page]($RELEASEURL$)\n\n""
 
 
 let setCredentials = function(){
@@ -31,15 +31,14 @@ let prepareMessage = function(recipients) {
 
     footer = FOOTER_TEMPLATE
       .replace("$RELEASEURL$", releaseURL)
-      .replace("$NEWISSUEURL$", newIssueURL),
 
     releaseBody = converter.makeHtml(eventPayload.release.body + footer)
 
   let msg = {
-    to: ['subscribers@no-reply.com'],
+    to: ['devops@future.work'],
     from: {
-      name: 'GitHub Releases',
-      email: 'no-reply@no-reply.com'
+      name: 'FUTURE DevOps',
+      email: 'devops@future.work',
     },
     bcc: recipients,
     subject: emailSubject,
