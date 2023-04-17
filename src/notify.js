@@ -6,7 +6,7 @@ const sgMail = require('@sendgrid/mail'),
 
 // E-mail string templates
 const SUBJECT_TEMPLATE = "New $REPO$ release: $NAME$ ($VERSION$)",
-  FOOTER_TEMPLATE = "\n\n## Where to find the release?\n\n[Visit the release page]($RELEASEURL$)\n\n""
+  FOOTER_TEMPLATE = "\n\n## Where to find the release?\n\n[Visit the release page]($RELEASEURL$)\n\n"
 
 
 let setCredentials = function(){
