@@ -5,7 +5,7 @@ const sgMail = require('@sendgrid/mail'),
   request = require("request")
 
 // E-mail string templates
-const SUBJECT_TEMPLATE = "New $REPO$ release: $NAME$ ($VERSION$)",
+const SUBJECT_TEMPLATE = "New FUTURE $REPO$ release: $NAME$",
   FOOTER_TEMPLATE = "\n\n## Where to find the release?\n\n[Visit the release page]($RELEASEURL$)\n\n"
 
 
@@ -21,12 +21,10 @@ let prepareMessage = function(recipients) {
     releaseVersion = eventPayload.release.tag_name,
     releaseName = eventPayload.release.name,
     releaseURL = eventPayload.release.html_url,
-    newIssueURL = eventPayload.repository.html_url + "/issues/new",
 
     // This is not efficient but I find it quite readable
     emailSubject = SUBJECT_TEMPLATE
       .replace("$REPO$", repoName)
-      .replace("$VERSION$", releaseVersion)
       .replace("$NAME$", releaseName),
 
     footer = FOOTER_TEMPLATE
